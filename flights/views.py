@@ -21,7 +21,7 @@ class listFlight(ListView):
     template_name = "list.html"
     context_object_name = "flights"
 
-    # ordenamos por precio ascendente
+    
     def get_queryset(self):
         return Flight.objects.all().order_by("price")
 
@@ -32,11 +32,10 @@ class statsFlights(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Contar vuelos por tipo
+
         count_nacionales = Flight.objects.filter(type="Nacional").count()
         count_internacionales = Flight.objects.filter(type="Internacional").count()
 
-        # Precio promedio de vuelos nacionales
         avg_nacionales = Flight.objects.filter(type="Nacional").aggregate(Avg("price"))["price__avg"]
 
         context["count_nacionales"] = count_nacionales
