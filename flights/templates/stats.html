@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estadísticas de Vuelos</title>
+</head>
+<body>
+    <h1>Estadísticas de Vuelos</h1>
+
+    <p>Cantidad de vuelos Nacionales: {{ count_nacionales }}</p>
+    <p>Cantidad de vuelos Internacionales: {{ count_internacionales }}</p>
+    <p>Precio promedio de los vuelos Nacionales: {{ avg_nacionales }}</p>
+
+    <br>
+    <a href="{% url 'home' %}">Volver al Home</a>
+</body>
+</html>
